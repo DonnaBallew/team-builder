@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, FormGroup, Label, Input, Button } from "reactstrap";
+import { Button } from "reactstrap";
 
 const NewForm = (props) => {
   const [newMember, setNewMember] = useState({
@@ -17,41 +17,37 @@ const NewForm = (props) => {
     setNewMember({ name: "", role: "", email: "" });
   };
   return (
-    <FormGroup>
-      <Label style={{ fontSize: "large" }}>Add New Members:</Label>
-      <Form onSubmit={submit} style={{ width: "40%", margin: "0 auto" }}>
-        <Label>Enter Name:</Label>
-        <Input
+    <div>
+      <label style={{ fontSize: "large" }}>Add New Members:</label>
+      <form onSubmit={submit} style={{ width: "80% auto", margin: "1% auto" }}>
+        <label style={{ padding: "1%" }}>Name: </label>
+        <input
           onChange={handleChange}
           type="text"
           id="name"
           name="name"
-          placeholder="Name"
           value={newMember.name}
-        ></Input>
-        <br />
-        <Label>Enter Role:</Label>
-        <Input
+        ></input>
+        <label style={{ padding: "1%" }}>Role: </label>
+        <input
           onChange={handleChange}
           type="text"
           id="role"
           name="role"
-          placeholder="What's your role?"
           value={newMember.role}
-        ></Input>
-        <br />
-        <Label>Enter Email:</Label>
-        <Input
+        ></input>
+        <label style={{ padding: "1%" }}>Email: </label>
+        <input
           onChange={handleChange}
           type="text"
           id="email"
           name="email"
-          placeholder="Let's communicate"
           value={newMember.email}
-        ></Input>
+        ></input>
+
         <Button style={{ margin: "0.5%" }}>Submit</Button>
-      </Form>
-    </FormGroup>
+      </form>
+    </div>
   );
 };
 
