@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import logo from "./logo.svg";
 import "./App.css";
-import Form from "./Form.js";
+import { Card, Label, Form } from "reactstrap";
+import NewForm from "./NewForm.js";
 
 function App() {
   const [team, setTeam] = useState([
@@ -14,13 +14,21 @@ function App() {
   };
   return (
     <div className="App">
-      <Form />
+      <NewForm addTeamMember={addTeamMember} />
       {team.map((obj) => (
-        <div>
-          <h1>{obj.name}</h1>
-          <h1>{obj.role}</h1>
-          <h1>{obj.email}</h1>
-        </div>
+        <Card
+          style={{
+            width: "40%",
+            margin: "1% auto",
+
+            backgroundColor: "dodgerBlue",
+            color: "white",
+          }}
+        >
+          <Label>Name: {obj.name} </Label>
+          <Label>Role: {obj.role} </Label>
+          <Label>Email: {obj.email} </Label>
+        </Card>
       ))}
     </div>
   );
